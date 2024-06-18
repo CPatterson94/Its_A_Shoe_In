@@ -1,32 +1,32 @@
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useRegisterMutation } from '../redux/api/auth';
 
 const Register = () => {
+const [register] = useRegisterMutation();
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    
+  async function attemptAuth(event) {
+    event.preventDefault();
+    setError(null);
+
+    const authMethod = register;
+    const credentials = {name, username, password};
+
     try {
-      const response = await axios.post('/api/auth/register', {
-        name,
-        username,
-        password
-      });
-      console.log('User registered successfully:', response.data);e
+        await authMethod(credentials).unwrap();
+        navigate("/")
     } catch (error) {
-      console.error('Error registering user:', error.response.data);
-      setError(error.response.data.error || 'Error registering user');
-    }
-  };
+        setError(error.data);
+        }
+        }
 
   return (
     <div>
       <h2>Register</h2>
-      <form onSubmit={handleRegister}>
+      <form onSubmit={attemptAuth}>
         <div>
           <label htmlFor="name">Name:</label>
           <input 
