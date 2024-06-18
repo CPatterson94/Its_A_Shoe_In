@@ -9,8 +9,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "scss": "sass --watch ./src/client/style/index.scss ./src/index.css",
-    "start": "node index.js dev",
-    "start:dev": "nodemon ./src/server/api/index.js"
+    "start": "node index.cjs dev",
+    "start:dev": "nodemon ./src/server/api/index.cjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",

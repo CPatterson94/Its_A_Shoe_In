@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { createSlice } from "@reduxjs/toolkit";
+import { getAllProducts } from "../../../server/api/db.cjs";
 
 const CREDENTIALS = "credentials";
 
 // Define a service using a base URL and expected endpoints
 export const api = createApi({
-  tagTypes: ["tag"],
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_URL || "http://localhost:8080",
@@ -20,10 +20,10 @@ export const api = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getTags: builder.query({
-      query: () => "/api/tags",
+    getAllProducts: builder.query({
+      query: () => "/api/products",
     }),
   }),
 });
 
-export const { useGetTagsQuery } = api;
+export const { useGetAllProductsQuery } = api;

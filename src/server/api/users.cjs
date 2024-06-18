@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { authenticateToken, isAdmin } = require("../auth/middleware");
-const { getAllUsers, getSingleUserById } = require("./db");
+const { authenticateToken, isAdmin } = require("../auth/middleware.cjs");
+const { getAllUsers, getSingleUserById } = require("./db.cjs");
 
 router.get("/", authenticateToken, isAdmin, async (req, res, next) => {
   try {

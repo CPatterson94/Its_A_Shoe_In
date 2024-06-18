@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { isAdmin } = require("../auth/middleware");
+const { isAdmin } = require("../auth/middleware.cjs");
 const {
   getAllProducts,
   getProductById,
   createProduct,
   updateProduct,
   deleteProduct,
-} = require("./db");
+} = require("./db.cjs");
 
 router.get("/", async (req, res, next) => {
   try {
