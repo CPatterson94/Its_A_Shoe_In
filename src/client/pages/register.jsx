@@ -11,7 +11,7 @@ const Register = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('/api/register', {
+      const response = await axios.post('/api/auth/register', {
         name,
         username,
         password
@@ -35,6 +35,7 @@ const Register = () => {
             value={name} 
             onChange={(e) => setName(e.target.value)} 
             required 
+            placeholder="Write your name"
           />
         </div>
         <div>
@@ -45,6 +46,7 @@ const Register = () => {
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
             required 
+            placeholder="Create a username"
           />
         </div>
         <div>
@@ -55,9 +57,10 @@ const Register = () => {
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             required 
+            placeholder="*********"
           />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Create Account</button>
       </form>
     </div>
   );
