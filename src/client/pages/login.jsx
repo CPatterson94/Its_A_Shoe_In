@@ -1,29 +1,30 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useLoginMutation } from "../redux/api/auth";
 
 const Login = () => {
+  const [login] = useLoginMutation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
+  async function attemptAuth(e) {
     e.preventDefault();
+    // setError(null);
+
+    const authMethod = login;
+    const credentials = { username, password };
 
     try {
-      const response = await axios.post("/api/auth/login", {
-        username,
-        password,
-      });
-      console.log("User logged in successfully:", response.data);
+      await authMethod(credentials).unwrap();
+      navigate("/");
     } catch (error) {
-      console.error("Error logging in user:", error.response.data);
-      setError(error.response.data.error || "Error logging in user");
+      // setError(error.data);
     }
-  };
+  }
 
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={attemptAuth}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
