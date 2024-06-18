@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { useGetProductsQuery } from "../redux/api/products";
+import { useGetAllProductsQuery } from "../redux/api/products";
 
 const ProductList = () => {
-  const { data: products, error, isLoading } = useGetProductsQuery();
+  const { data: products, error, isLoading } = useGetAllProductsQuery();
 
   useEffect(() => {
   }, []);
