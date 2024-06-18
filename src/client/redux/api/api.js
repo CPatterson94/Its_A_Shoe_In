@@ -6,7 +6,6 @@ const CREDENTIALS = "credentials";
 
 // Define a service using a base URL and expected endpoints
 export const api = createApi({
-  tagTypes: ["tag"],
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_URL || "",
@@ -21,10 +20,10 @@ export const api = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getTags: builder.query({
-      query: () => "/api/tags",
+    getAllProducts: builder.query({
+      query: () => "/api/products",
     }),
   }),
 });
 
-export const { useGetTagsQuery } = api;
+export const { useGetAllProductsQuery } = api;
