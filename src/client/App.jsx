@@ -1,11 +1,15 @@
 import React from "react";
 import ProductList from "./pages/index";
+import {Route, Routes} from "react-router-dom";
+import Register from "./pages/register";
 
 const App = () => {
   return (
     <div>
-      <h1>Show Store</h1>
-      <ProductList />
+      <Routes>
+        <Route path={"/"} element={<ProductList/>}/>
+        <Route path={"/register"} element={<Register/>}/>
+      </Routes>
     </div>
   );
 };

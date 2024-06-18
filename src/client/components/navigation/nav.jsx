@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+
 //import {useState} from "react";
 //import {useSelector} from "react-redux";
 //import {useLogoutMutation} from 
@@ -18,8 +19,8 @@ function Nav(){
                <div>
                    <Link to="/">Products</Link>
                    <Link to="/cart">Cart</Link>
-                   {/* {!user.userId && <Link to={"/register"}>Login/Register</Link>}
-                   {user.userId && <Link to={"/user"}></Link>} */}
+                   <Link to={"/register"}>Login/Register</Link>
+                   {/* {user.userId && <Link to={"/user"}></Link>} */}
                </div>
            </nav>
        </>
