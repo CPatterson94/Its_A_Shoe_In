@@ -1,7 +1,7 @@
 import { api } from "./api";
 const postApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getProducts: builder.query({
+    getAllProducts: builder.query({
       query: () => "/api/products",
     }),
     getProduct: builder.query({
@@ -10,4 +10,4 @@ const postApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetProductsQuery, useGetProductQuery } = postApi;
+export const { useGetAllProductsQuery, useGetProductQuery } = postApi;
