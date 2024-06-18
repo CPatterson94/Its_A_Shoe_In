@@ -19,6 +19,7 @@ const ProductList = () => {
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
+            {/* <p>{product.img && <img src={product.img} alt={product.name} />}</p> */}
           </div>
         ))}
       </ul>
