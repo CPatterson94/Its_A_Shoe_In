@@ -1,22 +1,20 @@
 import React from "react";
-import axios from "axios";
+import { useLogoutMutation } from "../redux/api/auth";
 
-const Account = () => {
-  const handleLogout = async () => {
-    try {
-      await axios.post("/api/auth/logout");
-      console.log("User logged out successfully");
-    } catch (error) {
-      console.error("Error logging out user:", error.response.data);
-    }
-  };
+function Account() {
+  const [logout, { isLoading, isError }] = useLogoutMutation();
+
 
   return (
     <div>
       <h2>Account</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={logout} disabled={isLoading}>
+        {isLoading ? "Logging out..." : "Logout"}
+      </button>
+      {isError && <p style={{ color: "red" }}>Error logging out</p>}
     </div>
   );
-};
+}
 
 export default Account;
+
