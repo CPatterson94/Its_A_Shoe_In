@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useRegisterMutation } from '../redux/api/auth';
+import {useNavigate} from "react-router-dom";
 
 const Register = () => {
 const [register] = useRegisterMutation();
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   async function attemptAuth(event) {
+ 
     event.preventDefault();
     setError(null);
 
@@ -15,6 +19,7 @@ const [register] = useRegisterMutation();
     const credentials = {name, username, password};
 
     try {
+   console.log(credentials)
         await authMethod(credentials).unwrap();
         navigate("/")
     } catch (error) {
@@ -61,6 +66,7 @@ const [register] = useRegisterMutation();
         </div>
         <button type="submit">Create Account</button>
       </form>
+      {error && <p className={"error"}>{error}</p>}
     </div>
   );
 };

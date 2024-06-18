@@ -27,5 +27,5 @@ const authApi = api.injectEndpoints({
 export const {
     useLoginMutation,
     useRegisterMutation,
-    useLogoutMutation,
-} = authApi
+    useLogoutMutation }
+    = authApi; 
