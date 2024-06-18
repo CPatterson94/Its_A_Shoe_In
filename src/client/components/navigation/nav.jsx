@@ -19,7 +19,8 @@ function Nav(){
                <div>
                    <Link to="/">Products</Link>
                    <Link to="/cart">Cart</Link>
-                   <Link to={"/register"}>Login/Register</Link>
+                   <Link to={"/register"}>Register</Link>
+                   <Link to={"/login"}>Login</Link>
                    {/* {user.userId && <Link to={"/user"}></Link>} */}
                </div>
            </nav>
