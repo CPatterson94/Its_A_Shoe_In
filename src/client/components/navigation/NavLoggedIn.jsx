@@ -8,19 +8,19 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function NavLoggedIn() {
   return (
-    <nav>
-      <div>
-        <Link to="/"className="NavLink"> 
-        Home
-          <FontAwesomeIcon icon={faStore} size="3x" style={{ color: "#000000" }} />
-        </Link>
-        <Link to="/cart"className="NavLink">
-        Cart
-             <FontAwesomeIcon icon={faCartShopping} size="3x" style={{ color: "#000000" }} />
+    <nav className="navbar">
+    <div className="nav-list">
+    <Link to="/"className="nav-link">
+    <span className="link-text">Home</span>
+      <FontAwesomeIcon icon={faStore} size="3x" style={{ color: "#000000" }} className="nav-icon"/>
+      </Link>
+          <Link to="/cart"className="nav-link">
+          <span className="link-text">Cart</span>
+             <FontAwesomeIcon icon={faCartShopping} size="3x" style={{ color: "#000000" }}className="nav-icon" />
           </Link>
-          <Link to="/account"className="NavLink">
-          Account
-             <FontAwesomeIcon icon={faUser} size="3x" style={{ color: "#000000" }} />
+          <Link to="/account"className="nav-link">
+          <span className="link-text">Account</span>
+             <FontAwesomeIcon icon={faUser} size="3x" style={{ color: "#000000" }} className="nav-icon"/>
           </Link>
       </div>
     </nav>

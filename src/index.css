@@ -1,7 +1,58 @@
-nav {
+.navbar {
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  justify-content: space-around;
-  background-color: grey;
+  justify-content: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-icon {
+  margin-bottom: 5px;
+}
+
+.link-text {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer {
+  background-color: whitesmoke;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+.footer .git {
+  margin-top: 10px;
+  display: block;
 }
 
 /*# sourceMappingURL=index.css.map */
