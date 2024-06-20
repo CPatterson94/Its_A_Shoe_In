@@ -1,10 +1,13 @@
 
 .footer {
     background-color: whitesmoke;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     color: #fff;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.8)
   }
   
   .footer a {
@@ -20,6 +23,7 @@
   
   .footer .git {
     margin-top: 10px;
-    display: block; 
+    display: flex; 
+    justify-content: center;
   }
   

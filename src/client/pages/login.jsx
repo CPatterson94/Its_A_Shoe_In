@@ -27,10 +27,10 @@ const Login = ({ setToken }) => {
   }
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={attemptAuth}>
-        <div>
+        <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -38,9 +38,10 @@ const Login = ({ setToken }) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            placeholder="Enter your username"
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -48,9 +49,11 @@ const Login = ({ setToken }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="Enter your password"
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="register-btn">
+          Login</button>
       </form>
       {error && <p className={"error"}>{error}</p>}
     </div>
