@@ -5,7 +5,23 @@ export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
   const response = await axios.get("/api/cart");
   return response.data;
 });
+export const fetchProducts = createAsyncThunk(
+  "products/fetchProducts",
+  async () => {
+    const response = await axios.get("/api/products");
+    return response.data;
+  }
+);
 
+export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
+  const response = await axios.get("/api/users");
+  return response.data;
+});
+
+export const fetchOrders = createAsyncThunk("orders/fetchOrders", async () => {
+  const response = await axios.get("/api/orders");
+  return response.data;
+});
 
 const dataSlice = createSlice({
   name: "data",
