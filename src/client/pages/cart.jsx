@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCart } from '../redux/slices/dataSlice';
+import { fetchCart, removeFromCart } from '../redux/slices/dataSlice';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,10 @@ const Cart = () => {
     }
   }, [cartStatus, dispatch]);
 
+  const handleRemoveFromCart = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
   if (cartStatus === 'loading') return <div>Loading...</div>;
   if (cartStatus === 'failed') return <div>Error: {error}</div>;
 
@@ -26,6 +30,7 @@ const Cart = () => {
             <h2>{item.name}</h2>
             <p>Quantity: {item.quantity}</p>
             <p>Price: ${item.price}</p>
+            <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
           </li>
         ))}
       </ul>
