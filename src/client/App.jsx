@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import Account from "./pages/account";
 import Cart from "./pages/cart";
 import SingleProduct from "./pages/singleProduct"
+import LogoutSuccess from "./components/logout";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path={"/login"} element={<Login />} />
         <Route path={"/account"} element={<Account />} />
         <Route path={"/product/:productId"} element={<SingleProduct />} /> 
+        <Route path={"/logout"} element={<LogoutSuccess />} />
       </Routes>
     </div>
   );
