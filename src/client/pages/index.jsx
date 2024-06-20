@@ -18,20 +18,31 @@ const ProductList = () => {
   if (error) return <div>Error fetching products: {error.message}</div>;
 
   return (
-    <div>
+    <div className="productsWrapper">
       <h1>Shoes</h1>
-      <ul>
+
+      <ul className="products">
         {products &&
           products.map((product) => (
-            <div key={product.id}>
+            <div className="singleProduct" key={product.id}>
               <h2>{product.name}</h2>
               <p>{product.description}</p>
               <p>Price: ${product.price}</p>
-              {product.img && <img src={product.img} alt={product.name} />}
-              <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-              <Link to={`/product/${product.id}`}>
-                <button>View Shoe</button>
-              </Link>
+              {product.img && (
+                <img
+                  className="productImgs"
+                  src={product.img}
+                  alt={product.name}
+                />
+              )}
+              <div className="buttons">
+                <Link to={`/product/${product.id}`}>
+                  <button>View Shoe</button>
+                </Link>
+                <button onClick={() => handleAddToCart(product)}>
+                  Add to Cart
+                </button>
+              </div>
             </div>
           ))}
       </ul>
