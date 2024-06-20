@@ -6,9 +6,11 @@ function Footer() {
     return (
         <footer className = "footer">
             <a href="#top">Back to Top</a>
+            <span className="git">
             <a href="https://github.com/CPatterson94/Its_A_Shoe_In" target="_blank" rel="noopener noreferrer" className="git">
                 <FontAwesomeIcon icon={faGithub} size="3x" style={{ color: "#000000" }} />
             </a>
+            </span>
         </footer>
     );
 }

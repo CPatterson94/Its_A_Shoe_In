@@ -20,9 +20,9 @@ function Account({ setToken }) {
   };
 
   return (
-    <div>
+    <div className="logout-container">
       <h2>Account</h2>
-      <button onClick={handleLogout} disabled={isLoading}>
+      <button onClick={handleLogout} disabled={isLoading} className="logout-btn">
         {isLoading ? "Logging out..." : "Logout"}
       </button>
       {isError && <p style={{ color: "red" }}>Error logging out</p>}
