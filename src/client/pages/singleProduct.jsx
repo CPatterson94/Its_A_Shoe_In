@@ -1,25 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProduct } from '../redux/slices/dataSlice';
+import axios from 'axios';
 
 const SingleProduct = () => {
   const { productId } = useParams();
-  const dispatch = useDispatch();
-  const product = useSelector((state) =>
-    state.data.products.find((product) => product.id === productId)
-  );
-  const productStatus = useSelector((state) => state.data.status);
-  const error = useSelector((state) => state.data.error);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (productStatus === 'idle') {
-      dispatch(fetchProduct(productId));
-    }
-  }, [productId, productStatus, dispatch]);
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`/api/products/${productId}`);
+        setProduct(response.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
 
-  if (productStatus === 'loading') return <div>Loading...</div>;
-  if (productStatus === 'failed') return <div>Error: {error}</div>;
+    fetchProduct();
+  }, [productId]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
 
   return (
@@ -27,9 +33,9 @@ const SingleProduct = () => {
       <h1>{product.name}</h1>
       <p>{product.description}</p>
       <p>Price: ${product.price}</p>
-      {/* <img src={product.img} alt={product.name} /> */}
     </div>
   );
 };
 
 export default SingleProduct;
+

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useGetAllProductsQuery } from "../redux/api/products";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const { data: products, error, isLoading } = useGetAllProductsQuery();
@@ -20,6 +21,9 @@ const ProductList = () => {
               <p>{product.description}</p>
               <p>Price: ${product.price}</p>
               {/* <p>{product.img && <img src={product.img} alt={product.name} />}</p> */}
+               <Link to={`/product/${product.id}`}>
+              <button>View Product</button>
+            </Link> 
             </div>
           ))}
       </ul>
