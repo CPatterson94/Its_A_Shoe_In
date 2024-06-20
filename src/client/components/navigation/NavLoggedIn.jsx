@@ -13,7 +13,7 @@ function NavLoggedIn() {
     <>
       <nav>
         <div>{/* <SearchBar/> */}</div>
-        <div>
+        <div className="links">
           <Link to="/">Products</Link>
           <Link to="/cart">Cart</Link>
           <Link to={"/account"}>My Account</Link>
