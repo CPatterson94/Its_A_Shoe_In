@@ -12,9 +12,8 @@ import SingleProduct from "./pages/singleProduct";
 import Footer from "./components/navigation/footer";
 import LogoutSuccess from "./components/logout";
 
-
 const App = () => {
-  const [token] = useState(window.sessionStorage.getItem("token"));
+  const [token, setToken] = useState(window.sessionStorage.getItem("token"));
   return (
     <div>
       {token !== null ? <NavLoggedIn /> : <NavLoggedOut />}
@@ -22,11 +21,10 @@ const App = () => {
         <Route path={"/"} element={<ProductList />} />
         <Route path={"/cart"} element={<Cart />} />
         <Route path={"/register"} element={<Register />} />
-        <Route path={"/login"} element={<Login />} />
-        <Route path={"/account"} element={<Account />} />
+        <Route path={"/login"} element={<Login setToken={setToken} />} />
+        <Route path={"/account"} element={<Account setToken={setToken} />} />
         <Route path={"/product/:productId"} element={<SingleProduct />} />
         <Route path={"/logout"} element={<LogoutSuccess />} />
-
       </Routes>
       <Footer />
     </div>

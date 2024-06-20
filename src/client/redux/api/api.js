@@ -9,9 +9,9 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_URL || "",
     prepareHeaders: (headers, { getState }) => {
-      const credentials = window.sessionStorage.getItem(CREDENTIALS);
-      const parsedCredentials = JSON.parse(credentials || "{}");
-      const token = parsedCredentials.token;
+      // const credentials = window.sessionStorage.getItem(CREDENTIALS);
+      // const parsedCredentials = JSON.parse(credentials || "{}");
+      const token = window.sessionStorage.getItem("token");
       if (token) {
         headers.set("Authorization", token);
       }

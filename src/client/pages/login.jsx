@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useLoginMutation } from "../redux/api/auth";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setToken }) => {
   const [login] = useLoginMutation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,9 @@ const Login = () => {
     const credentials = { username, password };
 
     try {
-      await authMethod(credentials).unwrap();
+      const results = await authMethod(credentials).unwrap();
+      window.sessionStorage.setItem("token", results.token);
+      setToken(results.token);
       navigate("/");
     } catch (error) {
       setError(error.data);

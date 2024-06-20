@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLogoutMutation } from "../redux/api/auth";
 
-function Account() {
+function Account({ setToken }) {
   const [logout, { isLoading, isError }] = useLogoutMutation();
   const [logoutSuccess, setLogoutSuccess] = useState(false);
 
   const handleLogout = async () => {
     try {
       await logout();
+      window.sessionStorage.removeItem("token");
+      setToken(null);
       setLogoutSuccess(true);
     } catch (error) {
       console.error("Logout error:", error);
@@ -31,5 +33,3 @@ function Account() {
 }
 
 export default Account;
-
-
