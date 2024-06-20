@@ -12,7 +12,7 @@ const ProductList = () => {
 
   return (
     <div>
-      <h1>Product List</h1>
+      <h1>Shoes</h1>
       <ul>
         {products &&
           products.map((product) => (
@@ -22,7 +22,7 @@ const ProductList = () => {
               <p>Price: ${product.price}</p>
               {/* <p>{product.img && <img src={product.img} alt={product.name} />}</p> */}
                <Link to={`/product/${product.id}`}>
-              <button>View Product</button>
+              <button>View Shoe</button>
             </Link> 
             </div>
           ))}

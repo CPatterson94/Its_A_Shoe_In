@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const SingleProduct = () => {
   const { productId } = useParams();
@@ -24,6 +25,7 @@ const SingleProduct = () => {
     fetchProduct();
   }, [productId]);
 
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
@@ -33,6 +35,9 @@ const SingleProduct = () => {
       <h1>{product.name}</h1>
       <p>{product.description}</p>
       <p>Price: ${product.price}</p>
+      <Link to={`/`}>
+              <button>Home</button>
+            </Link> 
     </div>
   );
 };
