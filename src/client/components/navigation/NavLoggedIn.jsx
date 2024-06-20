@@ -1,26 +1,31 @@
+import React from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStore } from '@fortawesome/free-solid-svg-icons'; 
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
+import { faUser } from '@fortawesome/free-solid-svg-icons'; 
 
-//import {useState} from "react";
-//import {useSelector} from "react-redux";
-//import {useLogoutMutation} from
-//import SearchBar from
 
 function NavLoggedIn() {
-  // const [logout] = useLogoutMutation();
-  // const user = useSelector((state)=>state.auth.credentials.user) || "";
-
   return (
-    <>
-      <nav>
-        <div>{/* <SearchBar/> */}</div>
-        <div className="links">
-          <Link to="/">Products</Link>
-          <Link to="/cart">Cart</Link>
-          <Link to={"/account"}>My Account</Link>
-        </div>
-      </nav>
-    </>
+    <nav>
+      <div>
+        <Link to="/"className="NavLink"> 
+        Home
+          <FontAwesomeIcon icon={faStore} size="3x" style={{ color: "#000000" }} />
+        </Link>
+        <Link to="/cart"className="NavLink">
+        Cart
+             <FontAwesomeIcon icon={faCartShopping} size="3x" style={{ color: "#000000" }} />
+          </Link>
+          <Link to="/account"className="NavLink">
+          Account
+             <FontAwesomeIcon icon={faUser} size="3x" style={{ color: "#000000" }} />
+          </Link>
+      </div>
+    </nav>
   );
 }
 
 export default NavLoggedIn;
+
