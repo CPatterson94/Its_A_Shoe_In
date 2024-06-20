@@ -9,10 +9,10 @@ export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await axios.get("/api/products");
-    return response.data;
+  const response = await axios.get("/api/products");
+  return response.data;
   }
-);
+  );
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   const response = await axios.get("/api/users");
