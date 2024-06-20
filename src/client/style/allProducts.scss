@@ -1,0 +1,34 @@
+.productsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: lightgray;
+}
+.productsWrapper h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.singleProduct {
+  display: flex;
+  flex-direction: column;
+}
+.productImgs {
+  max-width: 450px;
+  max-height: 450px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
