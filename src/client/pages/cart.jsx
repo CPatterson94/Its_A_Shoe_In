@@ -24,30 +24,43 @@ const Cart = () => {
     return <div className="cart-no-items">No items in cart</div>;
 
   return (
-    <div className="shopping-cart-container">
+    <div className="cart-container">
       <h1>Shopping Cart</h1>
-      <ul>
-        {cart.map((cartitem) => (
-          <li key={cartitem.id}>
-            <h2>{cartitem.name}</h2>
-            <p>Quantity: {cartitem.quantity}</p>
-            <p>Price: ${cartitem.price}</p>
-            <img className="cart-img" src={cartitem.img} alt={cartitem.name} />
-            <button onClick={() => handleRemoveFromCart(cartitem.id)}>
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div className="cart-total">
-        <h2>Cart Total:</h2>
-        <h2>
-          $
-          {cart.reduce(
-            (acc, cartitem) => acc + cartitem.price * cartitem.quantity,
-            0
-          )}
-        </h2>
+      <div className="shopping-cart-container">
+        <ul>
+          {cart.map((cartitem) => (
+            <li key={cartitem.id}>
+              <h2>{cartitem.name}</h2>
+              <p>Quantity: {cartitem.quantity}</p>
+              <p>Price: ${cartitem.price}</p>
+              <img
+                className="cart-img"
+                src={cartitem.img}
+                alt={cartitem.name}
+              />
+              <button
+                className="cart-btn"
+                onClick={() => handleRemoveFromCart(cartitem.id)}
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="cart-checkout">
+          <div className="cart-total">
+            <h2>Cart Total:</h2>
+            <h2>
+              $
+              {cart.reduce(
+                (acc, cartitem) => acc + cartitem.price * cartitem.quantity,
+                0
+              )}
+            </h2>
+          </div>
+          <button className="checkout-btn">Checkout</button>
+          {/* doesn't actaully do anything but looks the part*/}
+        </div>
       </div>
     </div>
   );

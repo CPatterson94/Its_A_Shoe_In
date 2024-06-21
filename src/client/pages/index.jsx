@@ -42,7 +42,7 @@ const ProductList = () => {
                 </Link>
                 <p>Price: ${product.price}</p>
                 <button
-                  className="cart-btn"
+                  className="add-cart-btn"
                   onClick={() => handleAddToCart(product)}
                 >
                   Add to Cart
