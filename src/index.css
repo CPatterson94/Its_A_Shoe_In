@@ -387,6 +387,7 @@
 .product-img {
   max-width: 450px;
   max-height: 450px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=index.css.map */
