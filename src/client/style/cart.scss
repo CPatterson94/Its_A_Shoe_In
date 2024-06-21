@@ -1,0 +1,24 @@
+.cart-no-items {
+  font-size: 45px;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+.shopping-cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 20px;
+  background-color: lightgray;
+  padding-bottom: 100px;
+}
+.shopping-cart-container h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+.cart-img {
+  max-width: 200px;
+  max-height: 200px;
+}
