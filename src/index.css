@@ -73,6 +73,7 @@
 .product-imgs {
   max-width: 450px;
   max-height: 450px;
+  border-radius: 5px;
 }
 
 .buttons-container {
