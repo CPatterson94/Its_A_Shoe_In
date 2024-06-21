@@ -31,10 +31,11 @@ const SingleProduct = () => {
   if (!product) return <div>Product not found</div>;
 
   return (
-    <div>
+    <div className="container">
       <h1>{product.name}</h1>
       <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
+      <p className="price" >Price: ${product.price}</p>
+      <img className="product-img"src={product.img} alt={product.name} />
       <Link to={`/`}>
               <button>Home</button>
             </Link> 
